@@ -1,0 +1,187 @@
+%Programmer: Nicholas Linares
+%Date: 12/3/2013
+%Assignment: 12 - Write a paper and format it with LaTex
+%Course: COP4342
+
+\documentclass{article}     
+  \usepackage{graphics}   
+    \usepackage{graphicx}     
+		
+\begin{document}
+  \title{Assignment 12: Final Paper \\ \large COP-4342 Unix Power Tools}     
+  \author{Nicholas Linares}
+  \date{Dec. 1 2013}
+\maketitle 
+\begin{centering}
+\begin{figure}{b}
+\centering
+\includegraphics[scale=0.5]{FSU}
+\end{figure}
+\end{centering}
+\newpage	
+
+\begin{center}
+\textsc{\LARGE Sections} \\[1.5cm]
+\end{center}  
+  \begin{enumerate}
+    \item Introduction
+    \item Shell Scripting
+    \item grep Command
+    \item awk Command
+    \item sed Command
+    \item sort Command
+    \item Conclusion
+  \end{enumerate}
+\newpage
+
+\begin{center}
+	\textbf{\LARGE Assignment 12} \\[1.5cm]
+
+	\textsc{\large Author: Nicholas Linares} \\[0.5cm]
+	\maketitle
+\end{center}
+
+\section{Introduction}	
+	COP4342 UNIX Power Tools has been quite the course to say the least; from brushing up and 
+extending skills on the UNIX shell-scripts, working with producing data with applications (LaTex, 
+Gnuplot), to learning Perl and writing Perl scripts. Although I enjoyed Perl, some of the syntax just 
+confused me at times and I wished I could go back to shell scripts. This is probably why I personally 
+enjoyed working and writing the shell scripts that we were assigned. In particular, I found the vast uses 
+of the UNIX utilities to be probably the most rewarding part about this. Some of my favorite utilities that 
+I was taught during this course would be the "grep" command which is a simple pattern matcher, "awk" 
+which searches particular fields of data, the "sed" command which can match patterns and execute 
+substitutions, and the "sort" command which can sort data in a number of ways in harmless fashion. All 
+of these utilities make the process of shell scripting much less painful and much more enjoyable when 
+used in the correct fashion.
+\section{Shell Scripting}	
+		Although it may be broad, the most enjoyable part of this course to me was writing shell scripts. 
+The process of creating a shell script can sometimes be tedious, but when you take a step back and think 
+about the utilities that are at your disposal, stringing together some lines of code can have the ability to 
+produce an abundance of information and make heavy tasks much lighter. The true nature and real 
+world use of a shell script is the power to automate multiple tasks within one file. A great example of 
+this was in assignment number 1, we were asked to create a shell script that could swap the contents of 
+two files, and this script is extremely useful because UNIX does not have the ability to carry out said 
+action with one a word command. However, once this simple script is created the programmer can then 
+convert the script into its own command which makes for a helpful tool that can be used whenever one 
+chooses to do so. Although this was quite a simple script to write, it has the ability to be implemented at 
+anytime whether that"s on the command line or multiple times within another shell script. This shows 
+that we have the ability to create our own commands and utilities simply by combining ones that have 
+already been given to us and running a single script, pretty cool. Another helpful part of a UNIX shell 
+script is the ability to different applications (LaTex, gnuplot) to work on a custom data set that the 
+programmer has created or been given to.\par 
+The shell script can run numerous utilities and commands on 
+single, or multiple data sets and generate formatted tables, or generate new data. On assignment 4, we 
+were given a set of names and grades that each person earned, and told to generate a table which could 
+be sorted by any column specified. Below is a simple figure I created with xfig pointing to a relatively small table produced by LaTex.\par
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.4]{arrow}
+\caption{\textit Arrow created with xfig}
+\end{figure}
+	
+\begin{center}
+  \begin{table}[!h] 
+    \begin{tabular}{|c|c|}
+      \hline
+      Student & Grade \\ \hline
+      N.Linares & A \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{center}  
+
+
+\section{grep Command}       
+One of the most widely used utilities in UNIX and probably my favorite, is "grep". "Grep" is a UNIX 
+command which can match terms or regular expressions in a file, or between multiple files. Empirical 
+studies show that software engineers use "grep" extensively in their daily maintenance tasks \cite{singer1997s}. Most programming languages do not contain a utility like "grep", which makes it so 
+much fun to use. Files may contain thousands of lines data or information and "grep" has the ability to pull 
+whatever information is needed out in a flash. Searches with "grep" can vary from extremely simple such 
+as:\par
+\textit{\large grep "Nick" temp.txt}\par 
+This will simply return all the lines in which "Nick" was found. A little bit more complicated search using 
+regular expressions looks like so:\par   
+\textit{\large grep [Nn]ick temp.txt}\par
+This command uses a simple regular expression to tell the search to ignore the case of the letter "n'. This 
+will output any lines in which "nick" or "Nick" occurs. Options are also available when using the "grep" 
+command which also work wonders when searching through large amounts of data. The '-v" option 
+when paired with "grep" will return the complete opposite of "grep" displaying to the user all of the lines 
+that did not contain the term that was being searched for. Simple options like this can be paired 
+together as well; The option '-vc" will return to the user not only the lines that do not match the 
+expression, but will also display the line numbers that these lines occur on. Another similar utility is 
+"awk"', however this utility works in a slightly different matter.
+\section{awk Command}
+		"Awk" is a command that is best used on files filled with multiple columns of data, no matter the 
+size or data handled. Not only is "awk" simply a command, it is often times considered to be its own 
+programming language. "awk" works best when the input file can easily be thought up of as records and 
+fields which can be accessed and manipulated. This makes "awk" one of the better filters when dealing 
+with lots of information. This command has the unique ability to simply pull any column from whichever 
+file specified, this data may be changed or simply written to another file. "awk" also does a pretty solid job 
+of encompassing "grep" if used the correct way. An "awk" script is simply another word for an "awk" program, 
+an "awk" script may consist of UNIX utilities, loops, or "awk" searches. A script may be executed on multiple 
+files, or on data which is found inside a file; the uses of "awk" span so vast it's truly unbelievable. Although 
+"awk" and "grep" are fantastic at matching patterns, when it comes to string manipulation the "sed" 
+command has them both beat.
+\section{sed Command}
+		The "sed" command is a "\textbf{S}tream \textbf{ED}itor" and is one of the most prominent UNIX text processing 
+tools \cite{robbins2009unix}. "Sed's" primary operation is to perform substitutions on strings that are matched 
+within a data file that has been passed in. Similarly to "awk", "sed" is also considered its own programming 
+language; however the documentation makes it a nuisance to keep track of. Just like in most UNIX 
+programs, the input flows throughout the program and is then sent to standard output. As we saw in the 
+"grep" command, the use of regular expressions is very prominent when using "sed" to search for a 
+particular string in which substitutions need to be made. The result of this substitution can be made 
+once, twice, or even globally which means throughout the entire file. "sed" is most often used when 
+reading from files or pipes and the result can be sent either to standard out or to an output file. One 
+interesting thing about "sed" is that when these substitutions are made upon input files, the original file is 
+not affected, the result is simply sent to standard output. Like most UNIX utilities, "sed" also has many 
+options that it may be paired with. The last UNIX utility I thought was the most useful is one that is 
+similar to a pattern matcher, like "grep", "awk", and "sed" except it handles the data a little differently.
+\section{sort Command}
+		In most programming languages sorting data can most often times be the most frustrating and 
+tedious part when dealing with sets of data. However, in UNIX there is already a sort utility available to 
+everyone that can be used extensively. Although it's not much of a pattern matching utility, it does have 
+to compare its current value its holding to the next value it reads and decided whether it is greater than 
+or less than the previous value. A little bit confusing, this makes sort a fantastic UNIX command to use 
+and execute within shell scripts. One option which can paired with sort is '-n" which will tell sort to work 
+numerically instead of by string. If a file is passed to sort that has multiple columns and rows the '-k" 
+option is an absolute gem, due to its ability to sort whichever column the program or programmer 
+specifies. Similar to "grep's" '-v" option, sort has the same option however it is denoted '-r" for reverse. 
+Reversing the outcome of the data is useful when the goal is to produce the output in descending order 
+rather than the default ascending order. 
+\section{Conclusion}	
+		In conclusion, although this class touched on multiple programming languages and the 
+incorporation of applications, I definitely found producing shell scripts to be the most enjoyable aspect. 
+The knowledge gained through writing and executing shell scripts was not only expansive but also 
+encompassing. Prior to this class I had also never worked with the Linux OS, and upon completion with 
+this course I am definitely more comfortable navigating my way around the operating system. The UNIX 
+utilities themselves were my favorite things to learn about and incorporate inside of the shell scripts. 
+The "grep" utility is a fantastic pattern matching tool which can display to the user any matched lines with 
+a certain expression that has been passed to the command. A similar pattern matching utility that yields 
+a vast amount of uses is the "awk" command which is great when working with data sets that are 
+composed of multiple records and fields in which data needs to be extracted and evaluated. Not only 
+can the "awk" command extract columns, but it also can do a pretty good job simply matching expressions 
+as "grep" does. The third UNIX utility I enjoyed the most was the "sed" command, which is a stream-editing 
+tool that is primarily used in making substitutions to a file or data that has been piped to it. The 
+substitutions may be made on a single file, or multiple files; likewise, the substitutions of "sed" may be 
+made once, numerous, or globally to a data set. Finally, the last utility that I found the most prominent 
+when implementing inside of shell scripts was the sort command. This command has the ability to sort 
+data that is passed to it either by ASCII value or numerically if specified. Sort can do an amazing job at 
+reading multiple files, sorting multiple columns, and writing this data out to a report. After taking a brief 
+look at all of these commands and the abilities they all possess, it's truly fascinating to think of the 
+power that be generated through a UNIX shell script. 
+
+
+
+\newpage
+	
+\begin{center}
+\textbf{\LARGE Bibliography \\}
+\end{center}
+
+\nocite{}
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
